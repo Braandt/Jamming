@@ -4,31 +4,43 @@
 }
 
 html {
-  background-color: #222
+  background-color: #222;
+  padding-bottom: 50px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .header {
   display: flex;
-  width: 100%;
   justify-content: center;
+  padding-top: 20px;
+}
+
+.logo {
+  font-size: 2.2rem;
 }
 
 .main {
   display: flex;
-  width: 100%;
+  width: 80%;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
 }
 
 .search-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  margin: 100px;
 }
 
 .search-container label{
   font-size: 1.3rem;
+  margin-bottom: 20px;
 }
 
 .search-container input {
@@ -36,13 +48,13 @@ html {
   border-style: none;
   height: 36px;
   width: 420px;
-  margin: 20px 0;
   border-radius: 18px;
   color: #222;
   text-align: center;
 }
 
 button {
+  margin: 20px 0 0;
   border-style: none;
   padding: 0px 20px;
   height: 36px;
@@ -53,19 +65,23 @@ button {
 }
 
 .results-playlist-container {
+  width: 100%;
   display: flex;
-  width: 80%;
   justify-content: center;
-  gap: 40px
+  gap: 40px;
 }
 
-.results-playlist-container h1 {
+.results {
+  padding-left: 5px;
+}
+
+h1 {
   margin: 12px 0;
   padding: 0;
   font-size: 1.8rem;
 }
 
-.playlist-container, .results-container {
+.container {
   display: flex;
   flex-direction: column;
   background-color: #111;
@@ -73,6 +89,7 @@ button {
   border-radius: 20px;
   padding: 20px;
   margin-top: 20px;
+  height: fit-content;
 }
 
 .songs-container {
@@ -84,22 +101,41 @@ button {
 
 .song-item {
   display: flex;
-  border-bottom: #555 solid 1px;
   align-items: center;
-  justify-content: space-between;
   cursor: pointer;
+  height: 64px;
+  border-radius: 5px;
 }
 
-.song-and-artist {
-  border: #fff;
+.add-symbol {
+  margin-left: auto;
+}
+
+.song-data {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 5px;
+  padding: 0 5px;
+}
+
+.artist-album {
+  display: flex;
+  gap: 10px;
+  font-size: small;
+}
+
+.album-cover {
+  height: 100%;
+}
+
+.album-cover img {
+  height: 100%;
+  border-radius: 6px;
 }
 
 .song {
   font-weight: bold;
-}
-
-.artist {
-  font-size: small;
 }
 
 .name-input {
@@ -110,4 +146,32 @@ button {
   color: #fff;
   text-align: center;
   border-bottom: #333 solid 3px;
+}
+
+.created-playlists-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.created-playlist {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  gap: 10px;
+}
+
+.name-genre {
+  display: flex;
+  flex-direction: column;
+  gap:5px;
+}
+
+.playlist-name {
+  font-weight: bold;
+}
+
+.song-selected {
+  background-color: #333;
+  padding: 5px;
 }

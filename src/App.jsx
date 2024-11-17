@@ -3,14 +3,17 @@ import SearchBar from './components/SearchBar';
 import SearchResults from './components/SearchResults';
 import Playlist from './components/Playlist';
 import { useState } from 'react';
+import CreatedPlaylists from './components/CreatedPlaylists';
 
 function App() {
 
-  const [playlistTracks, setPlaylistTracks] = useState([
-    { id: 1, song: 'title1', artist: 'artist1' },
+  const [playlistTracks, setPlaylistTracks] = useState([])
+
+  const [createdPlaylists, setCreatedPlaylists] = useState([
+    { id: 1, name: 'playlist1', genre: 'genre', cover: './album-cover.jpg', tracksIds: [1, 2] },
   ])
 
-  console.log(playlistTracks)
+  const [genre, setGenre] = useState('')
 
   return (
     <>
@@ -19,16 +22,17 @@ function App() {
       </div>
 
       <div className='main'>
-        <SearchBar />
-        <button className='search-btn'>Search</button>
+        <SearchBar genre={genre} setGenre={setGenre} />
 
         <div className='results-playlist-container'>
 
-          <SearchResults setPlaylistTracks={setPlaylistTracks} />
+          <SearchResults playlistTracks={playlistTracks} setPlaylistTracks={setPlaylistTracks} />
 
-          <Playlist tracks={playlistTracks} setPlaylistTracks={setPlaylistTracks} />
+          <Playlist genre={genre} tracks={playlistTracks} setPlaylistTracks={setPlaylistTracks} createdPlaylists={createdPlaylists} setCreatedPlaylists={setCreatedPlaylists} />
 
         </div>
+
+        <CreatedPlaylists playlists={createdPlaylists} />
 
       </div>
     </>
